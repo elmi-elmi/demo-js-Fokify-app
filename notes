@@ -1,0 +1,1049 @@
+-----------------------------------------------------------------------
+        Udemy - The Complete JavaScript Course 2022 From
+                    Zero to Expert! 2021-11
+                        Jonas Schmedtmann
+-----------------------------------------------------------------------
+01 - Welcome welcome welcome ✔️
+02 - Javascript Fundamental - Part1 ✔️
+03 - Javascript Fundamental - Part2 ✔️
+04 - How to Navigate This Course ✔️
+05 - Developer Skills & Editor Setup ✔️
+06 - [OPTIONAL] HTML & CSS Crash Course ✔️
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+07 - JavaScript in the Browser_ DOM and Events Fundamentals ✔️
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+08 - How JavaScript Works Behind the Scenes ✔️
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+09 - Data Structures, Modern Operators and Strings ✔️
+-----------------------------------------------------------------------
+spread - rest - && - || - ??  (nullish coalescing) operators - optional chaining ?.
+Set
+Map
+string
+slice
+trim
+toUpperCase toLoweCase startsWith endsWith
+includes indexOf replace // expression
+split
+joins
+padding: padStart, padEnd
+repeat
+-----------------------------------------------------------------------
+10 - A Closer Look at Functions ✔️
+-----------------------------------------------------------------------
+
+call
+apply
+bind
+
+    call and apply ==>
+        executed function  (apply accepts an array of arguments instead  of comma separated values;
+    bind ==> return a function
+
+IIFE Immidiately Invoked function expressions
+closures
+[[scopes]]  --> double [[ show we can not access from our code
+
+-----------------------------------------------------------------------
+11 - Working With Arrays  ✔️
+-----------------------------------------------------------------------
+
+forEach
+map
+reduce
+filter
+find
+findIndex
+some
+every
+includes
+flat
+flatMap
+sort
+fill
+************** attention
+new Array(7) array with on argument generate an     empty array that length is 7
+**************
+
+Array.from({length:7}, ()=> 1)
+
+
+-----------------------------------------------------------------------
+12 - Numbers, Dates, Intl and Timers video 11
+-----------------------------------------------------------------------
+7:
+    BigInt(1231231231898769163918273981273)
+    or
+    1231231231898769163918273981273n --> add n at end
+
+Date:
+    new Date() -- Date --  .getFullYear
+
+    future.getFullYear
+    getMonth
+    getDate
+    getDay --> day of week
+    getHours
+    getMinutes
+    getSeconds
+    toISOString --> standard
+    getTime --> time of now in millisecond
+    setFullYear
+
+11:
+
+Intl  (Internationalization)
+
+    const now = new Date();
+    labelDate.textContent = Intl.DateTimeFormat('fa-IR').format(now);
+
+    add option:
+    const option = {
+            hour: 'numeric',
+            minute: 'numeric',
+            day:    'numeric',
+            month:  'numeric', // ---> or 'long' -->example: August
+    }
+
+    label.textContent = Intl.DateTimeFomrmat('fa-IR', option).format(now)
+
+
+google:
+
+    iso language code --> http://www.lingoes.net/en/translator/langcode.htm
+
+navigator:
+    find local language:
+        const local = navigator.language;
+
+Intl Number format:
+    const num = 23234234.231
+    new Intl.NumberFormat('en-US').format(num)
+
+    add option:
+    const option = {
+    //style:'unit' // percent currency ...
+    // unit:'mile-per-hour' // celsuis
+    style: 'currency',
+    currency: 'EUR',
+    // useGrouping: false // number print without separated(.)
+
+
+    }
+
+timeZone:'UTC' for convert seconds to minues
+
+-----------------------------------------------------------------------
+13 - Advanced DOM and Events ✔️
+-----------------------------------------------------------------------
+
+
+videos 5,6:
+
+
+NodeList & HTMLCollection:
+
+    diffrence between NodeList & HTMLCollection
+
+        querySelectorAll     ==> return NodeList
+        getElementsByTagName ==> return HTMLCollection
+
+        diff:
+            getElementsByTagName ==> is live collection ==>meaning: for example if DOM changes the HTMLCollection immidiately update automatically
+
+    classList.add
+    innerHtml
+    prepend()
+    append()
+    after()
+    before()
+    cloneNode(true)
+
+
+get style:
+        we can not get style with .style property, for example:
+        message.style.color ==> return nothing
+
+        but:
+        if style is add in javascript you can.(inline style)
+
+        for get style use this:
+        getComputedStyle(message).color
+
+
+css custom property:
+    :root {
+  --color-primary: #5ec576;
+  }
+
+    .js:
+    document.documentElement.style.setProperty('--color-primary','red')
+
+
+non-standard attribute:
+
+    we can use this:
+    html:
+        <div designer='shahrokh'></div>
+    js:
+        logo.getAttribute('designer')
+
+
+set attribute:
+
+        .setAttribute('company', 'Bankist')
+
+
+
+img src attribute:
+
+    html: <img src:'./img/example.png'
+
+    js:
+    const logo = document.querySelector('.logo')
+
+    if read src as below:
+        log.src ---> console.log show as html addresss
+    if read src as below:
+        log.getAttribute('src') ---> console.log show as  the reletive address ==> ./img/example.png
+
+
+Data Attribute:
+
+    html:
+        <div data-version-number='3.0' class='logo'></div>
+
+    js:
+        const logo = ...
+        logo.dataset.versionNumber --> console.log: 3.0
+
+
+Classes:
+    logo.classList.add('c')
+    logo.classList.remove('c')
+    logo.classList.toggle('c')
+    logo.classList.contains('c')
+
+
+    **** Don't use this ↓: ****
+        logo.className='c' ==>because all classess overwrite with this class
+
+
+video 7:
+
+scrollTo:
+    const section1 = ...
+
+    section1.getBoundingClientRect() --> top height width x y left ...
+
+    e.target.getBoundingClientRect()
+
+    windows.clientHeight
+    windows.clientWidth
+
+    depricated symbol:
+    windows.pageYOffset
+    windows.pageXOffset
+    windows.scrollTo({left:windows.pageXOffset+windows.clientWidth
+                      top:windows.pageYOffset+widnows.clientHeight,
+                      behavior:'smooth'
+                      }
+
+scrollIntoView:
+    section1.scrollIntoView({behavior:'smooth')}
+
+
+video 8:
+        Event handleling:
+
+        .addEventListener
+
+            other way to add event listener:
+
+            use strictly : on
+
+            btn.onclick === btn.addEventListener('click',...)
+
+        .removeEventListener
+
+
+        add  in html:
+            <div onclick="alert('hi')" ...></div>
+
+video 9:
+
+        Bubbeling & Capturing
+
+video 10:
+
+        target
+        currentTarget
+
+        stop propagation --> stopPropagation    (stop bubbeling)
+
+        third parameter in addEventListener:
+
+
+            .addEventListener('click',function, true) ---> change default behavior:
+
+                if true --->  (parent to child) (capturing & bubbeling
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@  OPTIMAL @@@@@@@@@@@@@@@@@@@@@@@@:
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    DONT DEFINE addEventListener FOR EVERY ELEMENT
+        because if there are too many elements, the tons of function copied.
+
+        ALTERNATIVE:
+
+            use CAPTURING & Bubbeling
+
+EX: wrong way:
+ ⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯
+    document.querySelectorAll('.nav__link').forEach(function(el){
+    el.addeventListener('click',function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href');
+        document.querySelector(id).scrollIntoView({behavior:'smooth'})
+        }
+    })
+ ⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯
+
+// CORRECT SOLUTION:
+// 1. ADD EVENT LISTENER TO COMMON PARENT ELEMENT;
+// 2. DETERMINE WHAT ELEMENT ORGINATE THE EVENT;
+
+as below:
+
+    document.querySelector('.nav__links').addeventListener('click',function(e){
+    e.preventDefault();
+
+    if(e.target.classList.contains('.nav__link')){
+    const id = e.target.getAttribute('href')
+    ducument.querySelector(id).scrollIntoView({behavior:'smooth'})
+    }
+    })
+
+
+video: 14
+
+        hoverHandle(e){     // ---> e = event, this=0.5
+        }
+
+        ....addEventListener('mouserover', hoverHandle.bind(0.5))
+
+
+
+video 16:
+⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵
+
+    Intersection observer API
+
+    (⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯ don't use scroll event ⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯⨯)
+
+    const section1 = document.querySelector(...);
+
+    const obsCallback = function(entries, observer){
+    entries.forEach(entry=>console.log(entry)
+    }
+
+    cosnt obsOption = {
+        root:null            // --> viewport
+        threshold: 0.1  // [0, 1, 0.2]
+        rootMargin: '-90px'
+    }
+
+    const observer = new IntersectionObserver(obsCallback, obsOption)
+
+    observer.observ(section1)
+⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️⤴️
+
+video: 17
+
+    unobserve
+
+
+
+
+video 20:
+
+    select dataset html attributes in JS :
+        html:
+            <button class="dots" data-slide="1"> </button>
+            <button class="dots" data-slide="2"> </button>
+            <button class="dots" data-slide="3"> </button>
+        JS:
+
+            document.querySelector('.dots[data-slide="${i}"])
+
+video 21:
+        DOMContentLoaded
+
+        load event on windows:
+
+            windows.addEventListener('load',...
+
+        beforeunload   & return value (before user exit show a pop up)
+
+        windows.addeventListener('beforeunload', function(){
+            e.preventDefault();
+            e.returnValue = '';
+        })
+
+
+video 22:
+
+
+        regular
+
+        defer
+
+        async
+
+
+
+
+-----------------------------------------------------------------------
+14 - Object-Oriented Programming (OOP) With JavaScript video 1
+-----------------------------------------------------------------------
+
+5:
+
+    Constructor function  & Regular function
+
+    Constructor function:
+        1 - constructor function start with Capital letter.
+        (and other building constructor like array or map follow that convention as well;)
+
+        2 - use "new" keyword when you want to call that
+
+
+        const Person = function(firstName, birthyear){}
+
+        new Person('Shahrokh', 1993)
+
+6:
+    Prototype:
+        Person.prototype.calcAge = function(){console.log(2022-this.birthYear}
+
+    Prototype confusing concept:
+
+        Person.prototype.isPrototypeOf(shahrokh) --> true
+        Person.prototype.isPrototypeOf(Person) ---> false
+
+        // This concept is like a paternal inheritance in real world;
+        // The money of father inherits to child (child is a object from father);
+        // but money of parent do not inherit to itself.
+        // also the money of grandfather inherits to father ;)
+
+
+        actually .prototype is not proper name --> proper name: .prototypeOfLinkedObject
+
+
+
+
+
+    Access to prototype:
+        .__proto__
+        ex:
+            shahrokh.__proto__
+
+
+    .hasOwnProperty
+
+7:
+
+        Prototype Inheritance and Prototype Chain
+
+
+
+10:
+    class (Modern JS):
+
+    class expression:
+        const Person = class {}
+
+    class declaration":
+        class PersonCl {
+        }
+
+
+
+    1 . classes are NOT hoisted ==> means: You can NOT call it before declare
+
+    2 . classes are first-class citezes ==> means: you can pass to functions or return them from functions
+    3 . classes are executed in "strict" mode
+
+
+11:
+        Set & get   (Setter and getter)
+
+
+12:
+    Static method:
+        class PersonCl{
+
+            static hey(){}
+        }
+
+    example:
+
+        Number.parseFloat(12) --> do something
+        but:
+        12.parseFloat() --> throw error
+
+        because parseFloat is a static method
+
+
+13:
+
+    Object create: Object.create()
+
+        const PersonProto = {
+        calcAge(){
+            console.log(2022-this.birth)
+            }
+        }
+
+        const steven = Object.create(PersonProto)
+        // now steven is a empy object that has calcAge in its prototype;
+
+    A property can be added this way:
+        steven.name = 'Steven dige';
+        steven.birth = 1992;
+
+
+
+
+15:
+    Inheritance Between Classes - Constructor Functions
+
+
+    // 1 - Parent:
+        const Person = function(name,year){
+            this.name = name;
+            this.year = year;
+        }
+        // add prototype to parent
+        Person.prototype.calcAge = function(){
+            console.log(2022-this.year);
+        }
+
+    // 2 - Child
+        const Studen = function(name, year, course){
+            // this.name = name;
+            // this.year = year;
+
+    // 3 -  Call parent
+            Person.call(this, name, year);
+            this.course = course;
+        }
+
+    // 4 - Add prototype of parent to child
+        Student.prototype = Object.create(Person.prototype);
+
+    // 5 - fixed constructor
+        Student.prototype.constructor = Student;
+
+
+16:
+    Inheritance Between Classes ES6 Classes
+
+    classs StudentCl extends Person{
+        constructor(fullName, year, course){
+            super(fullName, year);
+            this.course = course;
+        }
+
+        introduce(){
+            console.log();
+        }
+    }
+
+
+17:
+    Inheritance Between Classes Objecte create
+
+        // step 1
+            const PersonProto = {
+                calcAge(){
+                    console...;
+                    }
+
+                init(firstName, year){
+                    this.firstName= firstName;
+                    this.year = year;
+                }
+
+
+            }
+
+        // step 2
+            const StudentProto = Object.create(PersonProto);
+
+
+        // step 3
+            StudentProto.init = function(firstName, year, course){
+                PersonProto.call(this, firstName, year);
+                this.course = course;
+            }
+
+        // step 4
+            const jay = Object.create(StudentProto);
+
+        // step 5
+            jay.init('jay dige', 1992,  'JS')
+
+
+21:
+    private field
+    public field
+
+    private method
+    public method
+
+
+22:
+    Chaining Method
+
+    for chaining in class you can return "this"
+
+23:
+
+
+
+-----------------------------------------------------------------------
+15 - Mapty App_ OOP, Geolocation, External Libraries, and More_
+-----------------------------------------------------------------------
+15:
+     Local Storage :
+
+-----------------------------------------------------------------------
+16 - Asynchronous JavaScript_ Promises, Async_Await, and AJAX
+-----------------------------------------------------------------------
+
+5:
+    // step 1
+    const request = XMLHttpRequest();
+    // step 2
+    request.open('GET','https://restcountries.com/v3.1/name/iran';
+    // step 3
+    request.send()
+    // step 1
+    request.addEventListener('load',function()=>{
+        const [data]  = JSON.parse({this.responseText});
+    })
+
+9:
+    fetch(url)
+        .then(res=>res.json())
+        .then(data=>....)
+
+11:
+    Error Handeling.
+
+        then
+        catch
+        finally
+        console.error
+        error.message
+
+14:
+    How Asynchronous javascript works  behind the scens
+
+        call stack, web apis, callback queue
+
+        microtasks queue -- like callback queue, but for callbacks related to promises.
+            Has priority over callback queue!
+
+
+19:
+
+    async await
+
+
+
+    whereAmI is async function---
+
+    (async function(){
+  try {
+    const city = await whereAmI();
+    console.log(city)
+  }catch (err){
+    console.log('hhhhhhh'+err.message)
+  }
+})()
+
+
+22:
+
+    Running Promises in Parallel
+
+
+    await Promise.all([..,..,..])
+
+23:
+
+    PROMISE COMBINATORS
+
+    Promise.rice -- Promise.allSettled -- Promise.all -- Promise.any (ES2021)
+
+
+    Promise.race          --> return one response (the fastest one if it is fulfilled)
+    Promise.allSettled    --> return all even responses are rejected
+    Promise.all           --> return all (if all response fillfill)
+    Promise.any           --> return one response (the fastest fulfilled response)
+
+
+
+
+
+    Promise.race([
+        Promise.resolve("race fastest response fulfill (and return one response)"),
+        Promise.reject("Error"),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+    Promise.race([
+        Promise.reject(new Error("race fastest response reject")),
+        Promise.resolve("Success"),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+    Promise.allSettled([
+        Promise.reject("allSettled fastest response reject"),
+        Promise.resolve("allSettled second response fulfilled"),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+    Promise.allSettled([
+        Promise.resolve("allSettled fastest response fulfilled"),
+        Promise.reject("allSettled second response rejected"),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+    Promise.any([
+        Promise.resolve(
+            "any fastest response fulfilled (and return first fulfilled response)"
+        ),
+        Promise.reject("avy second response reject"),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+    Promise.any([
+        Promise.reject("any fastest response rejected"),
+        Promise.resolve(
+            "first fulfill response is second response(return first fulfilled response)"
+        ),
+        ])
+        .then((res) => console.log(res))
+        .catch((err) => console.error(err.message));
+
+
+24:
+
+        async await map
+
+        const imgsWithMap =  imgArr.map(async path=> await createImg(path))
+
+        or
+        const imgsWithMap = await imgArr.map( (path) =>  createImg(path));
+
+        or
+        const imgsWithMap =  imgArr.map( (path) =>  createImg(path));
+
+
+-----------------------------------------------------------------------
+17 - Modern JavaScript Development_ Modules, Tooling, and Functional
+-----------------------------------------------------------------------
+public api
+6:
+    top level await
+        It works only on module mode;
+        you can use await outside of async functions;
+
+
+
+7:
+    private scope with function -- closure -- birth place
+
+    const test = (function(){... return ...})()
+    use this for once.
+    *****************************
+    EVERYTHING IN MODULE ARE PRIVATE;
+    SO FOR EXAMPLE YOU CAN'T CALL FUNCTION OR YOU DON'T HAVE ACCESS TO VARIBAILS IN CONSOLE DEV.
+    *****************************
+
+8:
+    CommonJS
+    export.
+
+    // export (this not run on browser. this run on server (node js)
+    export.addToCart = function(){}
+    //
+    //
+    // import
+    // const {addToCart} = require('./shoppingCart.js')
+
+
+
+11:
+    parcel -- npx
+
+    npx --> A tool to run node package easily without installing binaries;
+
+
+    npm install parcel --save-dev
+
+    npx parcel index.html
+
+
+    ************************************************************
+    type='module' does not work in old browser,
+        so, when you use parcel should not use 'module' type
+    ************************************************************
+
+
+
+    keep presisting over each reloads:
+
+        if(module.hot){
+        moduel.hot.accept();
+        }
+
+
+
+    "scripts::{
+        "start": "parcel index.html"
+    }
+
+    and the you can use :
+
+                    yarn start
+                    or
+                    npm run start
+
+
+
+
+    whenever we are done developing it is time to build a final bundel;
+    the bundel is compressed code.
+
+    for that:
+
+        add build to scripts
+
+        "scripts::{
+        "start": "parcel index.html",
+        build: "parcel build index.html"
+    }
+
+
+    -------------------------------------------------------------
+    How can use top-level await with parcel?
+    *************************************
+    The first approach:
+    *************************************
+        // step 1 add type="module" to html
+            <script type="module" src=".."></script>
+
+
+
+        // step 2 build prj  (before that remove "main" in json file)
+            npx parcel build index.html
+
+        // step 3 start prj
+            npx parcel index.html
+
+    *************************************
+    The second approach:
+    *************************************
+    Insert this step in pachage.json at once
+
+    // step 1
+    "scripts":{
+        "start":"parcel  html.index",
+        "build":"parcel build  html.index"
+    }
+
+    // step 2 build and run
+        yarn build        //or npm run build
+        yarn start
+    -------------------------------------------------------------
+
+
+
+12:
+
+    Confuguring Babel and Polyfilling
+
+    Transpiling & Polyfilling
+
+    Transpiling:
+
+        Change syntax like const, let,class... for use old browser
+        but can not change find,Promise,....
+        so, need polyfilling.
+
+    Polyfilling:
+
+        //Install core-js/stable:
+        yarn add core-js
+
+        // and one feature not polyfill with core-js and need regenerator-runtime
+        //Poligilling async functions
+        yarn add regenerator-runtime
+
+
+        // import
+
+        import 'core-js/stable
+        import 'regenerator-runtime/runtime'
+
+
+
+
+16:
+
+        freeze -- immutabling Object  -- deep freeze (use third party library)
+        Object.freez({..})
+
+
+
+
+
+-----------------------------------------------------------------------
+18 - Forkify App_ Building a Modern Application
+-----------------------------------------------------------------------
+7:
+    addEventListener
+    load hashchange
+
+    ['load','hashchange'].forEach(ev=>window.addEventListener('ev',recipeShow)
+
+8:  MVC architecture
+
+
+    export default new TestClass
+
+9:
+
+10:
+
+13:
+
+16
+
+18:
+*****************************************************************************
+    Developing a DOM Updating Algorithm;
+
+        how can update dom without felerting(?)(do not rerender all element)
+
+    // step 1 create new DOM:
+        const newDom = document.createRange().createContexualFragment(newMarkup);
+
+    // step 2 create array
+        const newElements = Array.from( newDom.querySelectorAll('*) );
+
+    // compare currElements and newElemnts and update them
+
+    // first update text, then update attribute
+
+    // step 3 update text
+
+    // for this use nodeValue --> if it is text `.nodeValue` return text
+    // else return `null`
+
+    // for this--> use .firstChild.nodeValue
+    //attention `firstchild` is different with `firstElement`
+    //and
+    //  then use .isEqualNode()
+
+
+    newElements.forEach((newEl, i)=>{
+        const currEl = currElements[i];
+        // update text
+        if(!newEl.isEqualNode(currEl) && newEl.firstChild.nodeValue !==''){
+            currEl.textContent = newEl.textContent
+        }
+
+        // update attribute
+        if(!newEl.isEqualNode(currEl)){
+
+            Array.from(newEl.attributes).forEach(attr=>currEl.setAttribute(attr.name, attr.value)
+
+        }
+
+
+    })
+
+    if(!newElements.isEqualNode(
+*****************************************************************************
+
+
+19:
+
+
+20:
+
+21:
+
+
+23:
+
+    new FormData ---> new JS for take data from form
+
+
+    entries --> object to array
+    fromEntries --> array to object
+
+25:
+
+    comment js ==> /** */
+
+    how change hash id (url address html )
+
+    //
+    window.pushState(null, '', `#${id}`)
+
+
+
+-----------------------------------------------------------------------
+19 - Setting Up Git and Deployment
+-----------------------------------------------------------------------
+    parcel 2
+
+
+    package.json
+
+
+        change main to default:
+
+        main  --> "default":"index.html"
+
+
+    for set direct of dist folder:
+
+        --> add    --dist-dir:
+
+    "build":"parcel build index.html --dist-dir ./dist"
+
+
+
+
+
+
