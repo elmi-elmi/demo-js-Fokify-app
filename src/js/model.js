@@ -133,7 +133,7 @@ export const addRecipe = async function (newRecipe) {
 };
 
 export const init = function () {
-  state.bookmarks.push(...JSON.parse(localStorage.getItem("bookmarks")));
+  state.bookmarks.push(...JSON.parse(localStorage.getItem("bookmarks")|| "[]"));
 };
 
 init();
